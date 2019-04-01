@@ -1,0 +1,132 @@
+<template>
+  <!--新闻详情分享弹框组件-->
+  <div class="share">
+    <span class="share-title">分享这篇内容</span>
+    <mt-swipe :auto="0">
+      <mt-swipe-item>
+        <div class="share-item">
+          <i class="icon iconfont icon-weixinhaoyou"></i>
+          <span>微信好友</span>
+        </div>
+        <div class="share-item">
+          <i class="icon iconfont icon-weixinpengyouquan"></i>
+          <span>微信朋友圈</span>
+        </div>
+        <div class="share-item">
+          <i class="icon iconfont icon-QQ"></i>
+          <span>QQ</span>
+        </div>
+        <div class="share-item">
+          <i class="icon iconfont icon-weibo"></i>
+          <span>新浪微博</span>
+        </div>
+        <div class="share-item">
+          <i class="icon iconfont icon-fuzhi"></i>
+          <span>复制链接</span>
+        </div>
+        <div class="share-item">
+          <i class="icon iconfont icon-youdaoyunbiji"></i>
+          <span>有道云笔记</span>
+        </div>
+        <div class="share-item">
+          <i class="icon iconfont icon-yinxiangbiji"></i>
+          <span>印象笔记</span>
+        </div>
+        <div class="share-item">
+          <i class="icon iconfont icon-tengxunweibo"></i>
+          <span>腾讯微博</span>
+        </div>
+      </mt-swipe-item>
+      <mt-swipe-item>
+        <div class="share-item">
+          <i class="icon iconfont icon-xinxi"></i>
+          <span>微信好友</span>
+        </div>
+        <div class="share-item">
+          <i class="icon iconfont icon-instapaper"></i>
+          <span>微信朋友圈</span>
+        </div>
+      </mt-swipe-item>
+    </mt-swipe>
+    <div class="button" @click="toggleCollect">{{this.$store.getters.collectText}}</div>
+    <div class="button" @click="cancel">取消</div>
+  </div>
+</template>
+<script>
+  export default {
+    /*
+ * 自身数据,一定要一个function
+ */
+    data(){
+      return {
+        a : 1,
+        b : 2
+      }
+    },
+    /**
+     * 计算属性
+     */
+    computed : {},
+
+    /**
+     * 监听属性变动
+     */
+    watch : {},
+    /**
+     * 过滤器
+     */
+    filters : {},
+    /**
+     * 生命周期钩子
+     */
+
+    beforeCreate(){
+
+    },
+    created(){
+      console.log("groupCountDown-> created:")
+    },
+
+    beforeMount(){
+
+    },
+    mounted(){
+      console.log("groupCountDown=>mounted")
+
+    },
+    beforeUpdate(){
+
+    },
+    updated(){
+      console.log("groupCountDown=>updated")
+    },
+    beforeDestroy(){
+
+    },
+    destroy(){
+
+    },
+    /**
+     * 自定义方法
+     */
+    methods : {
+      //取消分享菜单事件
+      cancel:function(){
+          this.$emit('cancel')
+      },
+      //收藏文章
+      toggleCollect:function(){
+        this.$store.dispatch('toggleCollect')
+      }
+    },
+    /**
+     * 组件
+     */
+    components : {}
+
+  }
+
+</script>
+<style lang="sass">
+  @import '../assets/sass/components/Share.sass'
+</style>
